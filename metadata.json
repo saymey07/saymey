@@ -1,0 +1,8 @@
+{
+  "name": "Personel ve Puantaj Takip Sistemi",
+  "description": "Personel, Puantaj, Mesai, Hakediş & Ödemeler, Şantiyeler, Giderler, Taşeronlar, Firma Cari Hesapları, Çek Takibi, Kredi Kartı ve Kapsamlı Raporlama Sistemi (Personel, Şantiye Kârlılık, Taşeron, Tedarikçi, Müşteri, Çek Vade Analizi). Firebase Firestore ile tüm cihazlarda gerçek zamanlı senkronize çalışır.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

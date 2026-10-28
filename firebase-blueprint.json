@@ -1,0 +1,29 @@
+{
+  "entities": {
+    "AppUser": {
+      "title": "AppUser",
+      "description": "Kullanıcı hesabı, rolü, şantiye ve taşeron yetkilendirme tanımları",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Benzersiz kullanıcı ID" },
+        "username": { "type": "string", "description": "Giriş kullanıcı adı" },
+        "password": { "type": "string", "description": "Giriş şifresi" },
+        "fullName": { "type": "string", "description": "Ad Soyad" },
+        "role": { "type": "string", "description": "Kullanıcı rolü", "enum": ["admin", "saha_sorumlusu", "puantor", "taseron_yetkilisi", "muhasebe", "custom"] },
+        "unvan": { "type": "string", "description": "Unvan / Görev" },
+        "telefon": { "type": "string", "description": "Telefon numarası" },
+        "durum": { "type": "string", "description": "Kullanıcı durumu", "enum": ["Aktif", "Pasif"] },
+        "permissions": { "type": "object", "description": "Modül ve eylem (silme, düzenleme) izinleri" },
+        "assignedSantiyeIds": { "type": "array", "description": "Yetkili olduğu şantiye ID listesi (boş ise tümü)" },
+        "assignedTaseronIds": { "type": "array", "description": "Yetkili olduğu taşeron ID listesi (boş ise tümü)" }
+      },
+      "required": ["id", "username", "password", "fullName", "role", "durum"]
+    }
+  },
+  "firestore": {
+    "/santiye_erp_v3/{moduleKey}": {
+      "schema": "AppUser",
+      "description": "ERP modül senkronizasyonu ve kullanıcı yetkilendirme koleksiyonu"
+    }
+  }
+}

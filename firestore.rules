@@ -1,0 +1,31 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Only allow operations on authorized ERP system modules
+    match /santiye_erp_v3/{moduleKey} {
+      allow read: if true;
+      allow write: if (moduleKey in [
+        'personnel',
+        'puantaj',
+        'mesai',
+        'odemeler',
+        'santiyeler',
+        'giderler',
+        'taseronlar',
+        'firmalar',
+        'cari',
+        'cekler',
+        'odeme_yontemleri',
+        'gider_kategorileri',
+        'kredi_kartlari',
+        'kart_harcamalari',
+        'users'
+      ]) && request.resource.data.keys().hasAll(['items', 'updatedAt']);
+    }
+    
+    // Disallow all other collections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

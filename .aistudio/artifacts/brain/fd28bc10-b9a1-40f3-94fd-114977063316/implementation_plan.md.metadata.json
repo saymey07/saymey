@@ -1,0 +1,6 @@
+{
+  "summary":  "Implementation plan to lock historical personnel payments to their respective sites and allow manual site selection during payment entry, preventing past expenses from shifting when a personnel's assigned site is changed.",
+  "updatedAt":  "2026-10-23T21:23:01.919525852Z",
+  "requestFeedback":  true,
+  "userFacing":  true
+}
